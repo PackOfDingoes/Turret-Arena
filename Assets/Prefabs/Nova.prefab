@@ -94,9 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d08c970bb688f640ac5f10d7bc595f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: .75
-  novaScale: 1
-  novaSpeed: .100000001
+  delay: .25
+  novaScale: .166666672
+  novaSpeed: .0250000004
 --- !u!212 &21257086
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -129,7 +129,19 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: delay
+      value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: novaScale
+      value: .166666672
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: novaSpeed
+      value: .0250000004
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157880}

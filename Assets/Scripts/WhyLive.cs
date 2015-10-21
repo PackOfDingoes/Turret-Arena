@@ -15,7 +15,8 @@ public class WhyLive : MonoBehaviour
 	{
 		if (Nova.diePls == true)
 		{
-			Destroy(this);
+			Nova.diePls = false;
+			Destroy(this.gameObject);
 		}
 	}
 }

@@ -4,7 +4,7 @@ using System;
 
 public class Nova : MonoBehaviour
 {
-    public float delay = 0.75f;
+    public float delay = 0.25f;
     public float novaScale = 1f;
     public float novaSpeed = 0.1f;
 	public static bool diePls = false;
@@ -25,7 +25,7 @@ public class Nova : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 		diePls = true;
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 
     
