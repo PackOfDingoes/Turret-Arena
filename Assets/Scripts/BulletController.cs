@@ -69,13 +69,13 @@ public class BulletController : MonoBehaviour
 			player = GameObject.FindGameObjectWithTag("P1");
 			playerCont = player.GetComponent<PlayerController>();
 
-			if (playerCont.isAlt == false && bulletIsPurple == false)
+			if (playerCont.isAlt == true && bulletIsPurple == false)
 			{
 				Destroy(player);
 				Destroy(this.gameObject);
 			}
 
-			if (playerCont.isAlt == true && bulletIsPurple == true)
+			if (playerCont.isAlt == false && bulletIsPurple == true)
 			{
 				Destroy(player);
 				Destroy(this.gameObject);
@@ -91,13 +91,13 @@ public class BulletController : MonoBehaviour
 			player = GameObject.FindGameObjectWithTag("P2");
 			playerCont = player.GetComponent<PlayerController>();
 			
-			if (playerCont.isAlt == false && bulletIsPurple == false)
+			if (playerCont.isAlt == true && bulletIsPurple == false)
 			{
 				Destroy(player);
 				Destroy(this.gameObject);
 			}
 			
-			if (playerCont.isAlt == true && bulletIsPurple == true)
+			if (playerCont.isAlt == false && bulletIsPurple == true)
 			{
 				Destroy(player);
 				Destroy(this.gameObject);
