@@ -17,9 +17,6 @@ public class PlayerController : MonoBehaviour
 	public float changeDelay = 0.25f;
 	public bool isP2 = false;
 	private string player;
-
-	private GameObject bullet;
-
 	private BulletController bulletCont;
     
 	void Start () 
@@ -39,7 +36,7 @@ public class PlayerController : MonoBehaviour
 	void Update ()
     {
 		//checks if shooting, has cooldown
-		if (Input.GetButton(player+"Fire")&&Time.time > fireCooldown)
+		if (Input.GetButtonDown(player+"Fire")&&Time.time > fireCooldown)
 		{
 			Shoot ();
 		}

@@ -15,7 +15,8 @@ public class MainMenu : MonoBehaviour
 
 	void Update () {
 		// pressing escape will pause game and bring up menu
-		if (Input.GetKey ("escape")) {
+		if (Input.GetKeyDown ("escape")) 
+		{
 			Time.timeScale = 0.0f;
 			toggleMenu (true);
 		}
@@ -27,12 +28,16 @@ public class MainMenu : MonoBehaviour
 		toggleMenu (false);
 	}
 
-	private void toggleMenu(bool showMenu) {
-		if (showMenu == true) {
+	private void toggleMenu(bool showMenu) 
+	{
+		if (showMenu == true) 
+		{
 			Time.timeScale = 0.0f;
 			canvas.gameObject.SetActive (true);
 			directionalLight.intensity = 0.5f;
-		} else {
+		} 
+		else 
+		{
 			Time.timeScale = 1.0f;
 			canvas.gameObject.SetActive (false);
 			directionalLight.intensity = 1.0f;

@@ -58,7 +58,7 @@ public class BulletController : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other)
 	{
 
-		if (other.tag == "Reflect" && selfReflectFix > 0.013f)
+		if (other.tag == "Reflect" && selfReflectFix > 0.02f)
 		{
 			//transform.localEulerAngles = new Vector3(0,0,180);
 			transform.Rotate(0,0,180, Space.Self);
