@@ -488,6 +488,26 @@ Prefab:
       propertyPath: Nova
       value: 
       objectReference: {fileID: 157880, guid: ea94aa924fc606d459ab5698c9d17685, type: 2}
+    - target: {fileID: 444228, guid: 842604fba6daf7845ba0be981ce6f37e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 444228, guid: 842604fba6daf7845ba0be981ce6f37e, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 444228, guid: 842604fba6daf7845ba0be981ce6f37e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444228, guid: 842604fba6daf7845ba0be981ce6f37e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .707106709
+      objectReference: {fileID: 0}
+    - target: {fileID: 444228, guid: 842604fba6daf7845ba0be981ce6f37e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -.707106829
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 842604fba6daf7845ba0be981ce6f37e, type: 2}
   m_IsPrefabParent: 0
