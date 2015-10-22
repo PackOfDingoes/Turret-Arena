@@ -289,6 +289,8 @@ MonoBehaviour:
   speed: 10
   fireRate: 1
   fireCooldown: 0
+  dontChange: 2
+  okayChange: 2
   isAlt: 0
   shot:
   - {fileID: 153932, guid: b5bbfcc59ce42ab4ebc0315d1f5ff2b6, type: 2}

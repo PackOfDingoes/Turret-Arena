@@ -76,12 +76,14 @@ public class BulletController : MonoBehaviour
 			{
 				Destroy(player);
 				Destroy(this.gameObject);
+				GameController.P1IsDead = true;
 			}
 
 			if (playerCont.isAlt == false && bulletIsPurple == true)
 			{
 				Destroy(player);
 				Destroy(this.gameObject);
+				GameController.P1IsDead = true;
 			}
 
 			else
@@ -98,12 +100,14 @@ public class BulletController : MonoBehaviour
 			{
 				Destroy(player);
 				Destroy(this.gameObject);
+				GameController.P2IsDead = true;
 			}
 			
 			if (playerCont.isAlt == false && bulletIsPurple == true)
 			{
 				Destroy(player);
 				Destroy(this.gameObject);
+				GameController.P2IsDead = true;
 			}
 			
 			else

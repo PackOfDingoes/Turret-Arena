@@ -7,7 +7,7 @@ public class BorderControl : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D other)
 	{
 		Destroy(other.gameObject);
-		Debug.Log("Left");
+		//Debug.Log("Left");
 	}
 
 	void Start () 

@@ -6,9 +6,11 @@ using System.Collections.Generic;
 public class PlayerController : MonoBehaviour 
 {
     private Rigidbody2D rigidbody2D;
-    public float speed = 10f;
+    public float speed = 10.0f;
 	public float fireRate = 1.0F;
 	public float fireCooldown = 0.0f;
+	public float dontChange = 0f;
+	public float okayChange = 2.0f;
 	public bool isAlt = false;
 	public GameObject[] shot;
     public GameObject Nova;
@@ -40,10 +42,12 @@ public class PlayerController : MonoBehaviour
 		{
 			Shoot ();
 		}
-		if (Input.GetButtonDown (player+"Change")) 
+		if (Input.GetButtonDown (player+"Change") && dontChange > okayChange) 
 		{
 			StartCoroutine(ChangeColour(changeDelay));
         }
+
+		dontChange = dontChange + Time.deltaTime;
     }
 	
 	void FixedUpdate () 
@@ -66,6 +70,7 @@ public class PlayerController : MonoBehaviour
 
 	IEnumerator ChangeColour(float changeDelay)
 	{
+		dontChange = 0;
 		//delay until change
 		yield return new WaitForSeconds(changeDelay);
 		//spawns the nova as a child of the player
