@@ -15,6 +15,7 @@ public class BulletController : MonoBehaviour
 	public Sprite[] shotColours;
 	private SpriteRenderer shotColour;
 	public bool canChange = true;
+	private float selfReflectFix = 0.0f;
 
 	private Rigidbody2D rigidbody2D;
 	// Use this for initialization
@@ -26,6 +27,8 @@ public class BulletController : MonoBehaviour
 
 	void Update ()
 	{
+		selfReflectFix = selfReflectFix + Time.deltaTime;
+
 		if (canChange == true)
 		{
 			if (isP2Shot == false)
@@ -41,7 +44,7 @@ public class BulletController : MonoBehaviour
 			}
 			
 			shotColour.sprite = shotColours[Convert.ToInt32(bulletIsPurple)];
-			Debug.Log(bulletIsPurple);
+			//Debug.Log(bulletIsPurple);
 			canChange = false;
 		}
 	}
@@ -55,7 +58,7 @@ public class BulletController : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other)
 	{
 
-		if (other.tag == "Reflect")
+		if (other.tag == "Reflect" && selfReflectFix > 0.013f)
 		{
 			//transform.localEulerAngles = new Vector3(0,0,180);
 			transform.Rotate(0,0,180, Space.Self);

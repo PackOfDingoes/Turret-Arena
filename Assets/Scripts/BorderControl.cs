@@ -4,9 +4,10 @@ using System.Collections;
 public class BorderControl : MonoBehaviour {
 
 	// Use this for initialization
-	void OnTriggerExit2d(Collider2D other)
+	void OnTriggerExit2D(Collider2D other)
 	{
 		Destroy(other.gameObject);
+		Debug.Log("Left");
 	}
 
 	void Start () 
