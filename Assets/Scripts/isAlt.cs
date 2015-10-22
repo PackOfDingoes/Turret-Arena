@@ -4,7 +4,7 @@ using System;
 
 public class isAlt : MonoBehaviour 
 {
-	public Renderer rend;
+	private Renderer rend;
 	private GameObject player;
 	private PlayerController playerCont;
 
