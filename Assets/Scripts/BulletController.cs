@@ -115,6 +115,10 @@ public class BulletController : MonoBehaviour
 				Destroy(this.gameObject);
 			}
 		}
+		if (other.tag == "Wall")
+		{
+			Destroy(this.gameObject);
+		}
 	}
 
 	void BulletColour()

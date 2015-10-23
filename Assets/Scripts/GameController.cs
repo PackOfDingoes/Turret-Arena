@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour
 		if (Input.GetKeyDown ("escape")) 
 		{
 			Time.timeScale = 0.0f;
-			toggleMenu (true);
+			toggleMenu(true);
 		}
 
 		//spawn player if they are dead
@@ -61,7 +61,7 @@ public class GameController : MonoBehaviour
 	public void StartGame ()	
 	{
 		button.GetComponentInChildren<Text>().text = "Resume";
-		toggleMenu (false);
+		toggleMenu(false);
 	}
 
 	private void toggleMenu(bool showMenu) 
@@ -69,7 +69,7 @@ public class GameController : MonoBehaviour
 		if (showMenu == true) 
 		{
 			Time.timeScale = 0.0f;
-			canvas.gameObject.SetActive (true);
+			canvas.gameObject.SetActive(true);
 			directionalLight.intensity = 0.5f;
 
 			//disables movement scripts
@@ -82,7 +82,7 @@ public class GameController : MonoBehaviour
 		else 
 		{
 			Time.timeScale = 1.0f;
-			canvas.gameObject.SetActive (false);
+			canvas.gameObject.SetActive(false);
 			directionalLight.intensity = 1.0f;
 
 			//enables movement scripts
@@ -99,7 +99,7 @@ public class GameController : MonoBehaviour
 		if (P1IsDead == true)
 		{
 			P1IsDead = false;
-			Debug.Log("spawn?");
+			//Debug.Log("spawn?");
 			yield return new WaitForSeconds(spawnDelay);
 			Instantiate(P1, spawnPoints[spawnNumber].transform.position, spawnPoints[spawnNumber].transform.rotation);
 			P1cont = P1.GetComponent<PlayerController>();
@@ -109,7 +109,6 @@ public class GameController : MonoBehaviour
 		if (P2IsDead == true)
 		{
 			P2IsDead = false;
-			Debug.Log("spawn?");
 			yield return new WaitForSeconds(spawnDelay);
 			Instantiate(P2, spawnPoints[spawnNumber].transform.position, spawnPoints[spawnNumber].transform.rotation);
 			P2cont = P2.GetComponent<PlayerController>();

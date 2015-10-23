@@ -1,10 +1,15 @@
 fileFormatVersion: 2
 guid: 50536441e746f7b4d818dad73cb88b40
-timeCreated: 1445471953
+timeCreated: 1445555363
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - canvas: {instanceID: 0}
+  - button: {instanceID: 0}
+  - directionalLight: {instanceID: 0}
+  - P1: {fileID: 103722, guid: 842604fba6daf7845ba0be981ce6f37e, type: 2}
+  - P2: {fileID: 163478, guid: 646e8da1621c5eb469806e17f3bde3fb, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

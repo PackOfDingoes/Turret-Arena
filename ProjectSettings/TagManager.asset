@@ -18,6 +18,8 @@ TagManager:
   - Turret1
   - Turret2
   - Shot
+  - Border
+  - Wall
   layers:
   - Default
   - TransparentFX
