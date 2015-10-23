@@ -4276,6 +4276,10 @@ Prefab:
       propertyPath: Nova
       value: 
       objectReference: {fileID: 157880, guid: ea94aa924fc606d459ab5698c9d17685, type: 2}
+    - target: {fileID: 11471350, guid: 646e8da1621c5eb469806e17f3bde3fb, type: 2}
+      propertyPath: changeDelay
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 646e8da1621c5eb469806e17f3bde3fb, type: 2}
   m_IsPrefabParent: 0
@@ -7679,6 +7683,10 @@ Prefab:
     - target: {fileID: 444228, guid: 842604fba6daf7845ba0be981ce6f37e, type: 2}
       propertyPath: m_LocalPosition.y
       value: -3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496668, guid: 842604fba6daf7845ba0be981ce6f37e, type: 2}
+      propertyPath: changeDelay
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 842604fba6daf7845ba0be981ce6f37e, type: 2}
