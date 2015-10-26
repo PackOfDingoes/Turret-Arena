@@ -25,14 +25,14 @@ public class GameController : MonoBehaviour
 	public float spawnDelay = 3;
 
 	//scoring
-	private int player1Score = 0;
-	private int player2Score = 0;
+	private int P1Score = 0;
+	private int P2Score = 0;
 
 	void Start ()
 	{
 		//getting the movement scripts
-		Instantiate(P1, spawnPoints[3].transform.position, spawnPoints[3].transform.rotation);
-		Instantiate(P2, spawnPoints[0].transform.position, spawnPoints[0].transform.rotation);
+		Instantiate(P1, spawnPoints[4].transform.position, spawnPoints[4].transform.rotation);
+		Instantiate(P2, spawnPoints[5].transform.position, spawnPoints[5].transform.rotation);
 
 		P1cont = GameObject.FindGameObjectWithTag("P1").GetComponent<PlayerController>();
 		P2cont = GameObject.FindGameObjectWithTag("P2").GetComponent<PlayerController>();
@@ -101,19 +101,23 @@ public class GameController : MonoBehaviour
 	{
 		if (P1IsDead == true)
 		{
+			P2Score++;
+			Debug.Log("Player 2 score:" +P2Score);
 			P1IsDead = false;
 			yield return new WaitForSeconds(spawnDelay);
 			Instantiate(P1, spawnPoints[spawnNumber].transform.position, spawnPoints[spawnNumber].transform.rotation);
-			P1cont = P1.GetComponent<PlayerController>();
+			P1cont = GameObject.FindGameObjectWithTag("P1").GetComponent<PlayerController>();
 			P1turret = GameObject.FindGameObjectWithTag("Turret1").GetComponent<FaceKeys>();
 		}
 
 		if (P2IsDead == true)
 		{
+			P1Score++;
+			Debug.Log("Player 1 score:" +P1Score);
 			P2IsDead = false;
 			yield return new WaitForSeconds(spawnDelay);
 			Instantiate(P2, spawnPoints[spawnNumber].transform.position, spawnPoints[spawnNumber].transform.rotation);
-			P2cont = P2.GetComponent<PlayerController>();
+			P2cont = GameObject.FindGameObjectWithTag("P2").GetComponent<PlayerController>();
 			P2turret = GameObject.FindGameObjectWithTag("Turret2").GetComponent<FaceKeys>();
 		}
 	}
