@@ -314,7 +314,7 @@ MonoBehaviour:
   Nova: {fileID: 157880, guid: ea94aa924fc606d459ab5698c9d17685, type: 2}
   shotSpawn: {fileID: 455050}
   me: {fileID: 444228}
-  changeDelay: .25
+  changeDelay: 0
   isP2: 0
 --- !u!212 &21222346
 SpriteRenderer:
@@ -447,6 +447,10 @@ Prefab:
       propertyPath: shot.Array.data[1]
       value: 
       objectReference: {fileID: 155402, guid: 56000b2e1a85121449a409fa822f2016, type: 2}
+    - target: {fileID: 0}
+      propertyPath: changeDelay
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 103722}

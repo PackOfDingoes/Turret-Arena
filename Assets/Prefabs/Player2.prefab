@@ -74,9 +74,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 475448}
+  - 114: {fileID: 11471350}
   - 50: {fileID: 5018452}
   - 60: {fileID: 6034154}
-  - 114: {fileID: 11471350}
   m_Layer: 0
   m_Name: Player2
   m_TagString: P2
@@ -298,7 +298,7 @@ MonoBehaviour:
   Nova: {fileID: 157880, guid: ea94aa924fc606d459ab5698c9d17685, type: 2}
   shotSpawn: {fileID: 452974}
   me: {fileID: 475448}
-  changeDelay: .25
+  changeDelay: 0
   isP2: 1
 --- !u!114 &11490772
 MonoBehaviour:
@@ -461,6 +461,10 @@ Prefab:
       propertyPath: shot.Array.data[1]
       value: 
       objectReference: {fileID: 155402, guid: 56000b2e1a85121449a409fa822f2016, type: 2}
+    - target: {fileID: 0}
+      propertyPath: changeDelay
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163478}

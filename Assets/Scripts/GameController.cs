@@ -31,8 +31,11 @@ public class GameController : MonoBehaviour
 	void Start ()
 	{
 		//getting the movement scripts
-		P1cont = P1.GetComponent<PlayerController>();
-		P2cont = P2.GetComponent<PlayerController>();
+		Instantiate(P1, spawnPoints[3].transform.position, spawnPoints[3].transform.rotation);
+		Instantiate(P2, spawnPoints[0].transform.position, spawnPoints[0].transform.rotation);
+
+		P1cont = GameObject.FindGameObjectWithTag("P1").GetComponent<PlayerController>();
+		P2cont = GameObject.FindGameObjectWithTag("P2").GetComponent<PlayerController>();
 		P1turret = GameObject.FindGameObjectWithTag("Turret1").GetComponent<FaceKeys>();
 		P2turret = GameObject.FindGameObjectWithTag("Turret2").GetComponent<FaceKeys>();
 
@@ -99,7 +102,6 @@ public class GameController : MonoBehaviour
 		if (P1IsDead == true)
 		{
 			P1IsDead = false;
-			//Debug.Log("spawn?");
 			yield return new WaitForSeconds(spawnDelay);
 			Instantiate(P1, spawnPoints[spawnNumber].transform.position, spawnPoints[spawnNumber].transform.rotation);
 			P1cont = P1.GetComponent<PlayerController>();
