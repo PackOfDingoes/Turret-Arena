@@ -25,6 +25,9 @@ public class GameController : MonoBehaviour
 	public float spawnDelay = 3;
 
 	//scoring
+	public Sprite[] scoreSprites;
+	public GameObject P1Scoreboard;
+	public GameObject P2Scoreboard;
 	private int P1Score = 0;
 	private int P2Score = 0;
 
@@ -102,6 +105,7 @@ public class GameController : MonoBehaviour
 		if (P1IsDead == true)
 		{
 			P2Score++;
+			updateScore(P2Scoreboard, P2Score);
 			Debug.Log("Player 2 score:" +P2Score);
 			P1IsDead = false;
 			yield return new WaitForSeconds(spawnDelay);
@@ -113,6 +117,7 @@ public class GameController : MonoBehaviour
 		if (P2IsDead == true)
 		{
 			P1Score++;
+			updateScore(P1Scoreboard, P1Score);
 			Debug.Log("Player 1 score:" +P1Score);
 			P2IsDead = false;
 			yield return new WaitForSeconds(spawnDelay);
@@ -120,5 +125,9 @@ public class GameController : MonoBehaviour
 			P2cont = GameObject.FindGameObjectWithTag("P2").GetComponent<PlayerController>();
 			P2turret = GameObject.FindGameObjectWithTag("Turret2").GetComponent<FaceKeys>();
 		}
+	}
+
+	private void updateScore(GameObject playerScore, int score) {
+		playerScore.gameObject.GetComponent<Image> ().sprite = scoreSprites [score-1];
 	}
 }
