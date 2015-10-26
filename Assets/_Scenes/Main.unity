@@ -7317,7 +7317,7 @@ MonoBehaviour:
   button: {fileID: 1077671973}
   directionalLight: {fileID: 1835164134}
   P1: {fileID: 103722, guid: 842604fba6daf7845ba0be981ce6f37e, type: 2}
-  P2: {fileID: 163478, guid: 646e8da1621c5eb469806e17f3bde3fb, type: 2}
+  P2: {fileID: 151564, guid: 646e8da1621c5eb469806e17f3bde3fb, type: 2}
   spawnPoints:
   - {fileID: 1095222355}
   - {fileID: 2083666179}
