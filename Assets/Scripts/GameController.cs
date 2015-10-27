@@ -7,7 +7,9 @@ public class GameController : MonoBehaviour
 	//Menu Stuff
 	public Canvas canvas;
 	public Button playButton;
-	public Button restartButton;
+	public Button menuButton;
+	public Button creditsButton;
+	public Button quitButton;
 	public Text PXWins;
 	public Light directionalLight;
 	public bool gameIsOver;
@@ -40,8 +42,8 @@ public class GameController : MonoBehaviour
 	void Start ()
 	{
 		PXWins.text = (" ");
-		restartButton.image.enabled = false;
-		restartButton.enabled = false;
+		menuButton.image.enabled = false;
+		menuButton.enabled = false;
 		//getting the movement scripts
 		Instantiate(P1, spawnPoints[4].transform.position, spawnPoints[4].transform.rotation);
 		Instantiate(P2, spawnPoints[5].transform.position, spawnPoints[5].transform.rotation);
@@ -60,8 +62,7 @@ public class GameController : MonoBehaviour
 		if (Input.GetKeyDown ("escape")) 
 		{
 			Time.timeScale = 0.0f;
-			restartButton.image.enabled = true;
-			restartButton.enabled = true;
+			HideMenuButtons();
 			toggleMenu(true);
 		}
 
@@ -77,10 +78,11 @@ public class GameController : MonoBehaviour
 		{
 			gameIsOver = true;
 			toggleMenu(true);
-			restartButton.image.enabled = true;
-			restartButton.enabled = true;
+			menuButton.image.enabled = true;
+			menuButton.enabled = true;
 			playButton.image.enabled = false;
 			playButton.enabled = false;
+			HideMenuButtons();
 			if (P1Score >= maxScore)
 			{
 				PXWins.text = ("Player 1 Wins!");
@@ -150,6 +152,14 @@ public class GameController : MonoBehaviour
 				
 			}
 		}
+	}
+
+	private void HideMenuButtons()
+	{
+		creditsButton.image.enabled = false;
+		creditsButton.enabled = false;
+		quitButton.image.enabled = false;
+		quitButton.enabled = false;
 	}
 
 	IEnumerator SpawnPlayer(float spawnDelay)

@@ -7422,7 +7422,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1673192621}
   playButton: {fileID: 1077671973}
-  restartButton: {fileID: 1738065377}
+  menuButton: {fileID: 1738065377}
+  creditsButton: {fileID: 628442269}
+  quitButton: {fileID: 1553572520}
   PXWins: {fileID: 765124112}
   directionalLight: {fileID: 1835164134}
   gameIsOver: 0
@@ -16849,7 +16851,7 @@ GameObject:
   - 114: {fileID: 1738065378}
   - 114: {fileID: 1738065377}
   m_Layer: 5
-  m_Name: RestartButton
+  m_Name: menuButton
   m_TagString: RestartButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
