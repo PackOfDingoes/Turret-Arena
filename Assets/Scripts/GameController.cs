@@ -6,8 +6,12 @@ public class GameController : MonoBehaviour
 {
 	//Menu Stuff
 	public Canvas canvas;
-	public Button button;
+	public Button playButton;
+	public Button restartButton;
+	public Text PXWins;
 	public Light directionalLight;
+	public bool gameIsOver;
+	public Sprite resumeButton;
 
 	//Player Stuff
 	public GameObject P1;
@@ -30,9 +34,14 @@ public class GameController : MonoBehaviour
 	public GameObject P2Scoreboard;
 	private int P1Score = 0;
 	private int P2Score = 0;
+	//10 is max score possible (or things will break)
+	public int maxScore = 10;
 
 	void Start ()
 	{
+		PXWins.text = (" ");
+		restartButton.image.enabled = false;
+		restartButton.enabled = false;
 		//getting the movement scripts
 		Instantiate(P1, spawnPoints[4].transform.position, spawnPoints[4].transform.rotation);
 		Instantiate(P2, spawnPoints[5].transform.position, spawnPoints[5].transform.rotation);
@@ -51,6 +60,8 @@ public class GameController : MonoBehaviour
 		if (Input.GetKeyDown ("escape")) 
 		{
 			Time.timeScale = 0.0f;
+			restartButton.image.enabled = true;
+			restartButton.enabled = true;
 			toggleMenu(true);
 		}
 
@@ -62,12 +73,41 @@ public class GameController : MonoBehaviour
 			StartCoroutine(SpawnPlayer(spawnDelay));
 		}
 
+		if (P1Score >= maxScore || P2Score >= maxScore)
+		{
+			gameIsOver = true;
+			toggleMenu(true);
+			restartButton.image.enabled = true;
+			restartButton.enabled = true;
+			playButton.image.enabled = false;
+			playButton.enabled = false;
+			if (P1Score >= maxScore)
+			{
+				PXWins.text = ("Player 1 Wins!");
+			}
+			if (P2Score >= maxScore)
+			{
+				PXWins.text = ("Player 2 Wins!");
+			}
+
+		}
+
 	}
 
 	public void StartGame ()	
 	{
-		button.GetComponentInChildren<Text>().text = "Resume";
+		playButton.GetComponent<Image>().overrideSprite = resumeButton;
 		toggleMenu(false);
+	}
+
+	public void RestartScene ()
+	{
+		Application.LoadLevel(Application.loadedLevel);
+	}
+
+	public void QuitGame()
+	{
+		Application.Quit();
 	}
 
 	private void toggleMenu(bool showMenu) 
@@ -79,10 +119,16 @@ public class GameController : MonoBehaviour
 			directionalLight.intensity = 0.5f;
 
 			//disables movement scripts
-			P1cont.enabled = false;
-			P2cont.enabled = false;
-			P1turret.enabled = false;
-			P2turret.enabled = false;
+			if (P1cont != null && P1turret != null)
+			{
+				P1cont.enabled = false;
+				P1turret.enabled = false;
+			}
+			if (P2cont != null && P2turret != null)
+			{
+				P2cont.enabled = false;
+			    P2turret.enabled = false;
+			}
 		} 
 
 		else 
@@ -92,17 +138,23 @@ public class GameController : MonoBehaviour
 			directionalLight.intensity = 1.0f;
 
 			//enables movement scripts
-			P1cont.enabled = true;
-			P2cont.enabled = true;
-			P1turret.enabled = true;
-			P2turret.enabled = true;
-
+			if (P1cont != null && P1turret != null)
+			{
+				P1cont.enabled = true;
+				P1turret.enabled = true;
+			}
+			if (P2cont != null && P2turret != null)
+			{
+				P2cont.enabled = true;
+				P2turret.enabled = true;
+				
+			}
 		}
 	}
 
 	IEnumerator SpawnPlayer(float spawnDelay)
 	{
-		if (P1IsDead == true)
+		if (P1IsDead == true && gameIsOver == false)
 		{
 			P2Score++;
 			updateScore(P2Scoreboard, P2Score);
@@ -114,7 +166,7 @@ public class GameController : MonoBehaviour
 			P1turret = GameObject.FindGameObjectWithTag("Turret1").GetComponent<FaceKeys>();
 		}
 
-		if (P2IsDead == true)
+		if (P2IsDead == true && gameIsOver == false)
 		{
 			P1Score++;
 			updateScore(P1Scoreboard, P1Score);
@@ -127,7 +179,8 @@ public class GameController : MonoBehaviour
 		}
 	}
 
-	private void updateScore(GameObject playerScore, int score) {
-		playerScore.gameObject.GetComponent<Image> ().sprite = scoreSprites [score-1];
+	private void updateScore(GameObject playerScore, int score) 
+	{
+		playerScore.gameObject.GetComponent<Image> ().sprite = scoreSprites [score];
 	}
 }

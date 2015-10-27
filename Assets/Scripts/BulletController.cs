@@ -21,6 +21,7 @@ public class BulletController : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		rigidbody2D = this.GetComponent<Rigidbody2D> ();
 		shotColour = GetComponent<SpriteRenderer>();
 		canChange = true;
 	}
@@ -51,7 +52,6 @@ public class BulletController : MonoBehaviour
 
 	void FixedUpdate () 
 	{
-		rigidbody2D = this.GetComponent<Rigidbody2D> ();
 		rigidbody2D.velocity = transform.up * UnityEngine.Random.Range(minSpeed, maxSpeed);
 	}
 

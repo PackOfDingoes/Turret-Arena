@@ -20,6 +20,7 @@ TagManager:
   - Shot
   - Border
   - Wall
+  - RestartButton
   layers:
   - Default
   - TransparentFX
