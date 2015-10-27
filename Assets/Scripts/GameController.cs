@@ -10,10 +10,10 @@ public class GameController : MonoBehaviour
 	public Button menuButton;
 	public Button creditsButton;
 	public Button quitButton;
+	public Button resumeButton;
 	public Text PXWins;
 	public Light directionalLight;
 	public bool gameIsOver;
-	public Sprite resumeButton;
 
 	//Player Stuff
 	public GameObject P1;
@@ -44,6 +44,8 @@ public class GameController : MonoBehaviour
 		PXWins.text = (" ");
 		menuButton.image.enabled = false;
 		menuButton.enabled = false;
+		resumeButton.image.enabled = false;
+		resumeButton.enabled = false;
 		//getting the movement scripts
 		Instantiate(P1, spawnPoints[4].transform.position, spawnPoints[4].transform.rotation);
 		Instantiate(P2, spawnPoints[5].transform.position, spawnPoints[5].transform.rotation);
@@ -59,9 +61,11 @@ public class GameController : MonoBehaviour
 
 	void Update () {
 		// pressing escape will pause game and bring up menu
-		if (Input.GetKeyDown ("escape")) 
+		if (Input.GetKeyDown ("escape") && gameIsOver == false) 
 		{
 			Time.timeScale = 0.0f;
+			menuButton.image.enabled = true;
+			menuButton.enabled = true;
 			HideMenuButtons();
 			toggleMenu(true);
 		}
@@ -80,8 +84,8 @@ public class GameController : MonoBehaviour
 			toggleMenu(true);
 			menuButton.image.enabled = true;
 			menuButton.enabled = true;
-			playButton.image.enabled = false;
-			playButton.enabled = false;
+			resumeButton.image.enabled = false;
+			resumeButton.enabled = false;
 			HideMenuButtons();
 			if (P1Score >= maxScore)
 			{
@@ -98,7 +102,10 @@ public class GameController : MonoBehaviour
 
 	public void StartGame ()	
 	{
-		playButton.GetComponent<Image>().overrideSprite = resumeButton;
+		playButton.image.enabled = false;
+		playButton.enabled = false;
+		resumeButton.image.enabled = true;
+		resumeButton.enabled = true;
 		toggleMenu(false);
 	}
 
